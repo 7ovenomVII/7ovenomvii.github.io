@@ -14,6 +14,16 @@ body {
     line-height: 1.7;
     padding: 40px 20px;
     scroll-behavior: smooth;
+
+    /* 让页脚始终贴在最底部 */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 内容区撑满剩余高度，把页脚顶到最下面 */
+main {
+    flex: 1;
 }
 
 /* ========== 毛玻璃卡片 ========== */
@@ -134,8 +144,18 @@ h2::after {
 footer {
     text-align: center;
     font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.6);
-    padding-top: 10px;
+    color: rgba(255, 255, 255, 0.45);
+    padding-top: 16px;
+    margin-bottom: 0;
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+footer p,
+footer span {
+    opacity: 0.9;
 }
 
 /* ========== 手机适配 ========== */
