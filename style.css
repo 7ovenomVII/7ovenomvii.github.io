@@ -38,9 +38,12 @@ main {
 }
 
 /* 内容区限宽居中 */
+/* 注意：body 是 flex 容器，如果只写 auto 外边距，
+   子元素会收缩成内容宽度而不再撑满，所以必须补 width: 100% */
 header,
 main,
 footer {
+    width: 100%;
     max-width: 860px;
     margin-left: auto;
     margin-right: auto;
