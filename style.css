@@ -1,0 +1,154 @@
+/* ========== 基础设置 ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* 渐变背景：改这三个颜色就能换整体风格 */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #2b1055 100%);
+    background-attachment: fixed;
+    color: #fff;
+    font-family: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+    line-height: 1.7;
+    padding: 40px 20px;
+    scroll-behavior: smooth;
+}
+
+/* ========== 毛玻璃卡片 ========== */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 24px;
+}
+
+/* 内容区限宽居中 */
+header,
+main,
+footer {
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ========== 头部 ========== */
+header h1 {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+}
+
+header p {
+    color: rgba(255, 255, 255, 0.75);
+    margin-top: 6px;
+}
+
+nav {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+nav a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* ========== 标题 ========== */
+h2 {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 3px;
+    margin-top: 8px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+/* ========== 网格（项目 / 技能 / 笔记） ========== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.item {
+    display: block;
+    padding: 18px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.item:hover {
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateY(-3px);
+}
+
+.item h3 {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+}
+
+.item p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ========== 联系方式 ========== */
+.contact-list {
+    list-style: none;
+}
+
+.contact-list li {
+    margin-bottom: 8px;
+}
+
+.contact-list a {
+    color: #fff;
+    opacity: 0.85;
+}
+
+/* ========== 页脚 ========== */
+footer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    padding-top: 10px;
+}
+
+/* ========== 手机适配 ========== */
+@media (max-width: 600px) {
+    body {
+        padding: 20px 14px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+}
