@@ -50,12 +50,27 @@ footer {
 }
 
 /* ========== 头部 ========== */
+/* 网格布局：文字独占左侧一列，头像固定在右侧，文字完全不用改结构 */
+header.card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+        "title avatar"
+        "bio   avatar"
+        "nav   avatar";
+    /* 黄金比例间距：104 / 1.618 ≈ 64 */
+    column-gap: 64px;
+    align-items: start;
+}
+
 header h1 {
+    grid-area: title;
     font-size: 2.2rem;
     letter-spacing: 2px;
 }
 
 header p {
+    grid-area: bio;
     color: rgba(255, 255, 255, 0.75);
     margin-top: 6px;
 }
@@ -78,6 +93,23 @@ nav a {
 nav a:hover {
     opacity: 1;
     text-decoration: underline;
+}
+
+/* 圆形头像
+   尺寸与间距按黄金比例搭配：104 : 64 ≈ 1.618 : 1
+   原图是 263×350 竖图，用 object-fit 居中裁成正方形后再裁成圆 */
+.avatar {
+    grid-area: avatar;
+    align-self: center;
+    display: block;
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 30%;
+    border: 2px solid rgba(255, 255, 255, 0.28);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+    flex: 0 0 auto;
 }
 
 /* ========== 标题 ========== */
@@ -173,5 +205,15 @@ footer span {
 
     header h1 {
         font-size: 1.6rem;
+    }
+
+    /* 小屏同样维持黄金比例：64 : 40 ≈ 1.6 : 1 */
+    header.card {
+        column-gap: 40px;
+    }
+
+    .avatar {
+        width: 64px;
+        height: 64px;
     }
 }
